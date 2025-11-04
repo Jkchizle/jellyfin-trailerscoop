@@ -12,7 +12,7 @@
         "changelog": "Initial release",
         "targetAbi": "10.11.0.0",
         "sourceUrl": "https://jkchizle.github.io/jellyfin-trailerscoop/releases/TrailerScoop_0.1.0.zip",
-        "checksum": "sha256:PUT_REAL_SHA256_OF_ZIP_HERE"
+        "checksum": "sha256:37c55897c52bb7092fc9588064f9d52896a30326d877046da17dc4a8ecab0931"
       }
     ]
   }

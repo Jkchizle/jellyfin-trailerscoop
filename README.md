@@ -18,8 +18,10 @@ C:\ProgramData\Jellyfin\Server\plugins\configurations\2d4a0fa0-4b2b-4d26-9c6b-7b
   "PreferredLanguage": "en-US",
   "YtDlpPath": "C:\\Tools\\yt-dlp.exe",
   "FfmpegPath": "C:\\Tools\\ffmpeg\\bin\\ffmpeg.exe",
-  "OverwriteExisting": false
+  "OverwriteExisting": false,
+  "TrailerDirectory": "D:\\Media\\Trailers"
 }
+
 
 Then restart Jellyfin and run:
 Dashboard ? Scheduled Tasks ? Library ? **Fetch Trailers for Library**.

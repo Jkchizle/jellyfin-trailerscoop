@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Plugins;
 using MediaBrowser.Model.Plugins;
@@ -11,8 +11,9 @@ namespace Jellyfin.Plugin.TrailerScoop
         public string? TmdbApiKey { get; set; }
         public string? PreferredLanguage { get; set; } = "en-US";
         public string? YtDlpPath { get; set; }
-        public string? FfmpegPath { get; set; }
+        public string? FfmpegPath { get; set; } // reserved for future use
         public bool OverwriteExisting { get; set; } = false;
+        public string? TrailerDirectory { get; set; } // when set, save all trailers here
     }
 
     public class Plugin : BasePlugin<PluginConfiguration>

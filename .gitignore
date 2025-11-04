@@ -1,0 +1,6 @@
+# Build
+bin/
+obj/
+
+# VS Code
+.vscode/

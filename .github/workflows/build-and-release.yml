@@ -1,0 +1,47 @@
+mkdir -Force .github\workflows
+@"
+name: build-and-release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish plugin
+        run: dotnet publish -c Release -o publish
+
+      - name: Create plugin zip (TrailerScoop_<version>.zip)
+        shell: pwsh
+        run: |
+          \$version = (Get-Content Jellyfin.Plugin.TrailerScoop.csproj) -match '<Version>(.+)</Version>' | Out-Null; \$version = \$Matches[1]
+          \$zipName = "TrailerScoop_\$version.zip"
+          Compress-Archive -Path publish\* -DestinationPath \$zipName
+          echo "ZIP_NAME=\$zipName" >> \$env:GITHUB_ENV
+
+      - name: Compute SHA256
+        shell: pwsh
+        run: |
+          \$hash = (Get-FileHash \$env:ZIP_NAME -Algorithm SHA256).Hash.ToLower()
+          echo "ZIP_SHA256=\$hash" >> \$env:GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: \${{ env.ZIP_NAME }}
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+"@ | Set-Content .github\workflows\build-and-release.yml
+
+git add .github\workflows\build-and-release.yml
+git commit -m "CI: build & release zip on tag"
+git push

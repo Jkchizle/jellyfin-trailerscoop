@@ -1,0 +1,24 @@
+{
+  "name": "JKChizle Repo",
+  "description": "Plugins by JKChizle",
+  "manifestVersion": 1,
+  "plugins": [
+    {
+      "name": "TrailerScoop",
+      "guid": "2d4a0fa0-4b2b-4d26-9c6b-7b8106e8a5bf",
+      "overview": "Download official trailers from TMDb/YouTube and save them next to your movies.",
+      "owner": "JKChizle",
+      "category": "Metadata",
+      "imageUrl": "",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "targetAbi": "10.9.0.0",
+          "sourceUrl": "https://github.com/JKChizle/jellyfin-trailerscoop/releases/download/v1.0.0/TrailerScoop_1.0.0.zip",
+          "checksum": "sha256:REPLACE_ME",
+          "changelog": "Initial release."
+        }
+      ]
+    }
+  ]
+}

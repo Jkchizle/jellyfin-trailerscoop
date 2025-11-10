@@ -4,3 +4,5 @@ obj/
 
 # VS Code
 .vscode/
+
+!docs/repo/*.zip
